@@ -10,17 +10,17 @@ function NavBar() {
   ];
 
   return (
-    <nav className="bg-blue-600 text-white py-4 px-6">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="font-bold text-xl">Kelvin</div>
-        <div className="space-x-4">
+    <nav className="text-white py-5 px-6 fixed top-0 left-0 w-full z-50 shadow-lg">
+      <div className="max-w-7xl mx-auto flex items-center justify-center">
+        <div className="flex items-center space-x-16">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               to={link.path}
-              className="hover:underline hover:text-gray-200"
+              className="text-lg font-medium hover:text-blue-400 transition-colors duration-300 relative group"
             >
               {link.label}
+              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
