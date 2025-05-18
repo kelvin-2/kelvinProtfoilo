@@ -3,15 +3,15 @@ import { motion } from "framer-motion"
 
 function Hero() {
   return (
-    <div className="flex flex-col items-center justify-center gap-8 py-10">
+    <div className="flex flex-col items-center justify-center gap-6 py-10">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="relative"
       >
-        <div className="absolute inset-0 bg-blue-500 rounded-full blur-lg opacity-20"></div>
-        <div className="relative p-1.5 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full">
+        <div className="absolute inset-0 bg-blue-500 rounded-full blur-md opacity-20"></div>
+        <div className="relative p-1 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full">
           <div className="bg-white p-0.5 rounded-full">
             <img 
               src="images/kelvin.png" 
