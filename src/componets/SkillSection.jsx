@@ -30,23 +30,27 @@ function Skills() {
     }
   };
 
-  // Tech stack data
-  const techStack = [
-    { name: "C#", icon: "devicon-csharp-plain" },
-    { name: "HTML", icon: "devicon-html5-plain" },
-    { name: "CSS", icon: "devicon-css3-plain" },
-    { name: "JavaScript", icon: "devicon-javascript-plain" },
-    { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
-    { name: "React", icon: "devicon-react-original" },
-    { name: "Node.js", icon: "devicon-nodejs-plain" },
-    { name: "Java", icon: "devicon-java-plain" },
-    { name: "Supabase", icon: "simple-icons:supabase" },
-    { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
+  // Tech stack data - only icons
+  const techIcons = [
+    "devicon-csharp-plain",
+    "devicon-html5-plain",
+    "devicon-css3-plain",
+    "devicon-javascript-plain",
+    "devicon-tailwindcss-plain",
+    "devicon-react-original",
+    "devicon-nodejs-plain",
+    "devicon-java-plain",
+    "devicon-postgresql-plain",
+    "devicon-python-plain",
+    "devicon-git-plain",
+    "devicon-github-original",
+    "devicon-npm-original-wordmark",
+    "devicon-vscode-plain",
     // Duplicate icons to create continuous flow
-    { name: "C#", icon: "devicon-csharp-plain" },
-    { name: "HTML", icon: "devicon-html5-plain" },
-    { name: "CSS", icon: "devicon-css3-plain" },
-    { name: "JavaScript", icon: "devicon-javascript-plain" },
+    "devicon-csharp-plain",
+    "devicon-html5-plain",
+    "devicon-css3-plain",
+    "devicon-javascript-plain",
   ];
 
   // Skill categories
@@ -107,12 +111,9 @@ function Skills() {
               }
             }}
           >
-            {techStack.map((tech, index) => (
-              <div key={index} className="flex flex-col items-center justify-center mx-8">
-                <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-blue-900/30 rounded-xl backdrop-blur-sm border border-blue-500/20">
-                  <i className={`${tech.icon} text-4xl md:text-5xl text-blue-400`}></i>
-                </div>
-                <p className="mt-2 text-blue-300 text-sm">{tech.name}</p>
+            {techIcons.map((icon, index) => (
+              <div key={index} className="mx-8">
+                <i className={`${icon} text-6xl md:text-7xl text-blue-400`}></i>
               </div>
             ))}
           </motion.div>
