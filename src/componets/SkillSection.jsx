@@ -109,27 +109,27 @@ function Skills() {
         </motion.h2>
         
         {/* Animated tech stack carousel */}
-        <div className=" overflow-hidden mb-20">
-          <motion.div 
-            className="flex items-center"
-            animate={{ x: [0, -1500] }}
-            transition={{ 
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear"
-              }
-            }}
-          >
-            {techIcons.map((icon, index) => (
-              <div key={index} className="mx-8">
-                <i className={`${icon} text-3xl md:text-7xl text-blue-400`}></i>
-              </div>
-            ))}
-          </motion.div>
+        <div className="overflow-hidden mb-20">
+            <motion.div
+                className="flex items-center whitespace-nowrap"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 20,
+                    ease: "linear",
+                },
+                }}
+            >
+                {techIcons.concat(techIcons).map((icon, index) => (
+                <div key={index} className="mx-8">
+                    <i className={`${icon} text-3xl md:text-7xl text-blue-400`}></i>
+                </div>
+                ))}
+            </motion.div>
         </div>
-        
+
         {/* Skills grid */}
         <motion.div
           variants={containerVariants}
