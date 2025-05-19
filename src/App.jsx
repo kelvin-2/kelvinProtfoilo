@@ -3,7 +3,7 @@ import './App.css'
 import NavBar from './componets/NavBar';
 
 // Import your section components instead of HomePage
-// import SkillsSection from './sections/SkillsSection';
+import SkillsSection from './componets/SkillSection';
 // import ProjectsSection from './sections/ProjectsSection';
 // import ContactSection from './sections/ContactSection';
 import AboutSection from './componets/AboutSection';
@@ -23,10 +23,11 @@ function App() {
         <section id="about">
           <AboutSection />
         </section>
-        
-        {/* <section id="skills">
+        <section id="skills">
           <SkillsSection />
         </section>
+        
+        {/* 
         
         <section id="projects">
           <ProjectsSection />
