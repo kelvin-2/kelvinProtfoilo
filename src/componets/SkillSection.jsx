@@ -32,7 +32,7 @@ function Skills() {
 
   // Tech stack data - only icons
   const techIcons = [
-    "devicon-csharp-plain",
+    "devicon-csharp",
     "devicon-html5-plain",
     "devicon-css3-plain",
     "devicon-javascript-plain",
@@ -51,6 +51,17 @@ function Skills() {
     "devicon-html5-plain",
     "devicon-css3-plain",
     "devicon-javascript-plain",
+    "devicon-tailwindcss-plain",
+    "devicon-react-original",
+    "devicon-nodejs-plain",
+    "devicon-java-plain",
+    "devicon-postgresql-plain",
+    "devicon-python-plain",
+    "devicon-git-plain",
+    "devicon-github-original",
+    "devicon-npm-original-wordmark",
+    "devicon-vscode-plain",
+    
   ];
 
   // Skill categories
@@ -98,7 +109,7 @@ function Skills() {
         </motion.h2>
         
         {/* Animated tech stack carousel */}
-        <div className="w-full overflow-hidden mb-20">
+        <div className=" overflow-hidden mb-20">
           <motion.div 
             className="flex items-center"
             animate={{ x: [0, -1500] }}
@@ -113,7 +124,7 @@ function Skills() {
           >
             {techIcons.map((icon, index) => (
               <div key={index} className="mx-8">
-                <i className={`${icon} text-6xl md:text-7xl text-blue-400`}></i>
+                <i className={`${icon} text-3xl md:text-7xl text-blue-400`}></i>
               </div>
             ))}
           </motion.div>
