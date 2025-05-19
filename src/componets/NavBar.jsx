@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 function NavBar() {
   const navLinks = [
     { id: "Home", label: "Home" },
+    { id: "About", label: "About" },
     {id:"Skills", label:"Skills"},
     { id: "Projects", label: "Projects" },
     { id: "Contact", label: "Contact" },
-    { id: "About", label: "About" },
   ];
 
   const scrollToSection =(id) =>{
@@ -18,7 +18,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="text-white py-5 px-6 fixed top-0 left-0 w-full z-50 shadow-lg">
+    <nav className="text-white py-5 px-6 fixed top-0 left-0 w-full z-50 shadow-lg bg-black">
       <div className="max-w-7xl mx-auto flex items-center justify-center">
         <div className="flex items-center space-x-16">
           {navLinks.map((link) => (
