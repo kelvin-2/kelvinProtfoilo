@@ -3,7 +3,7 @@ import './App.css'
 import NavBar from './componets/NavBar';
 import SkillsSection from './componets/SkillSection';
 import ProjectsSection from './componets/ProjectSection';
-// import ContactSection from './sections/ContactSection';
+import ContactSection from './componets/ContactSection';
 import AboutSection from './componets/AboutSection';
 import HomeSection from './pages/HomePage';
 
@@ -27,16 +27,11 @@ function App() {
         <section id="projects">
           <ProjectsSection />
         </section>
-        
-        {/* 
-        
-
-        
         <section id="contact">
           <ContactSection />
         </section>
         
- */}
+
       </main>
     </>
   )
