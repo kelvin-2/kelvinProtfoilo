@@ -34,7 +34,7 @@ function Skills() {
   const techIcons = [
     "devicon-csharp",
     "devicon-html5-plain",
-    "devicon-css3-plain",
+    "devicon-vitejs-plain",
     "devicon-javascript-plain",
     "devicon-tailwindcss-plain",
     "devicon-react-original",
@@ -46,10 +46,11 @@ function Skills() {
     "devicon-github-original",
     "devicon-npm-original-wordmark",
     "devicon-vscode-plain",
+    "devicon-linux-plain",
     // Duplicate icons to create continuous flow
     "devicon-csharp-plain",
     "devicon-html5-plain",
-    "devicon-css3-plain",
+    "devicon-vitejs-plain",
     "devicon-javascript-plain",
     "devicon-tailwindcss-plain",
     "devicon-react-original",
@@ -61,6 +62,8 @@ function Skills() {
     "devicon-github-original",
     "devicon-npm-original-wordmark",
     "devicon-vscode-plain",
+    "devicon-linux-plain",
+
     
   ];
 
