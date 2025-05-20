@@ -35,74 +35,74 @@ function Projects() {
     }
   };
 
-  // Enhanced project data with more details
   const projects = [
     {
       id: 1,
       title: "Personal Portfolio",
       description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and a clean design.",
       longDescription: "This portfolio showcases my skills and projects using modern web technologies. It features smooth page transitions, responsive design for all devices, and interactive elements to improve user engagement. Implemented with accessibility in mind and optimized for performance.",
-      image: "/api/placeholder/600/400",
+      image: "images/portofolio.png",
       techStack: ["React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-      features: ["Animated UI transitions", "Dark/Light mode", "Contact form with validation", "Performance optimized assets"],
+      features: ["Animated UI transitions", "Contact form with validation", "Performance optimized assets"],
       liveLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project1"
+      codeLink: "https://github.com/kelvin-2/kelvinProtfoilo"
     },
     {
-      id: 2,
-      title: "E-Commerce Dashboard",
-      description: "Full-stack e-commerce admin dashboard with analytics, order management, and inventory tracking capabilities.",
-      longDescription: "A comprehensive admin dashboard for e-commerce businesses, featuring real-time analytics, inventory management, order processing, and customer relationship tools. Built with a scalable architecture and secure authentication system.",
-      image: "/api/placeholder/600/400",
-      techStack: ["C#", "React", "PostgreSQL", "Tailwind CSS", "Chart.js"],
-      features: ["Real-time sales analytics", "Inventory management", "Order processing", "Customer data management"],
-      liveLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project2"
-    },
-    {
-      id: 3,
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, task assignment, and progress tracking.",
-      longDescription: "A collaborative productivity tool that helps teams organize and track their tasks efficiently. Features include real-time updates using WebSockets, drag-and-drop task organization, priority setting, and deadline reminders.",
-      image: "/api/placeholder/600/400",
-      techStack: ["JavaScript", "Node.js", "Supabase", "CSS", "WebSockets"],
-      features: ["Real-time collaboration", "Task assignment", "Progress tracking", "Deadline notifications"],
-      liveLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project3"
-    },
-    {
-      id: 4,
-      title: "AI Image Generator",
-      description: "Web application that uses machine learning to generate unique images based on text prompts.",
-      longDescription: "This app leverages AI to create unique images from text descriptions. Users can input prompts and receive AI-generated visuals, with options to adjust style, complexity, and artistic influences. The application includes image history, favorites, and sharing capabilities.",
-      image: "/api/placeholder/600/400",
-      techStack: ["Python", "TensorFlow", "React", "Flask", "Redis"],
-      features: ["Text-to-image generation", "Style customization", "Image history", "Social sharing"],
-      liveLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project4"
-    },
-    {
-      id: 5,
-      title: "Fitness Tracker",
-      description: "Mobile-first web application for tracking workouts, nutrition, and fitness progress with data visualization.",
-      longDescription: "A comprehensive fitness companion that helps users track their workout routines, nutrition intake, and overall fitness progress. Features include customizable workout plans, nutrition logging, progress charts, and achievement badges to keep users motivated.",
-      image: "/api/placeholder/600/400",
-      techStack: ["React Native", "Firebase", "Redux", "D3.js"],
-      features: ["Workout planning", "Nutrition tracking", "Progress analytics", "Achievement system"],
-      liveLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project5"
-    },
-    {
-      id: 6,
-      title: "Weather Dashboard",
-      description: "Interactive weather application with location-based forecasts, historical data comparison, and severe weather alerts.",
-      longDescription: "A feature-rich weather application that provides users with accurate forecasts, historical weather data, and severe weather alerts. The app includes interactive maps, hourly and weekly forecasts, and customizable notification settings.",
-      image: "/api/placeholder/600/400",
-      techStack: ["JavaScript", "React", "Node.js", "OpenWeather API", "Mapbox"],
-      features: ["Location-based forecasts", "Interactive weather maps", "Historical data", "Weather alerts"],
-      liveLink: "https://example.com",
-      codeLink: "https://github.com/yourusername/project6"
-    },
+        id: 2,
+        title: "uinStay – Student Accommodation Finder",
+        description: "A responsive web app for students to search and explore off-campus accommodation options with real-time filters and location-based results.",
+        longDescription: "uinStay is a student-focused accommodation platform designed to simplify the process of finding suitable housing near campus. It features real-time search filters, interactive property listings, and mobile-friendly navigation. The app connects seamlessly with a Supabase backend for efficient data management and includes developer tools for streamlined debugging.",
+        image: "images/uinStay.png", 
+        techStack: ["React", "Supabase", "Tailwind CSS", "PostgreSQL", "Vite"],
+        features: [
+          "Location-based property search",
+          "Filter by price range and payment methods",
+          "Responsive, mobile-friendly interface",
+          "Developer debug tools for easy testing"
+        ],
+        liveLink: "https://uin-stay-vtmv.vercel.app/",
+        codeLink: "https://github.com/kelvin-2/uin-Stay"
+      },
+      
+      {
+        id: 3,
+        title: "TheLee Playlist – Personal Music Showcase",
+        description: "A personal music hub to explore my favorite albums, artists, and musical insights, with future plans for Spotify integration.",
+        longDescription: "TheLee Playlist is a web-based music portfolio where I share my top albums, artist highlights, and personal music takes—from timeless classics to hidden gems. Designed with simplicity and clarity in mind, the site features clean navigation and responsive layouts. Future iterations aim to integrate the Spotify API for live track previews and dynamic music data.",
+        image: "images/music.png", // Replace with actual image path
+        techStack: ["React", "Spotify API","CSS"],
+        features: [
+          "Curated list of favorite albums with descriptions",
+          "Artist spotlights and personal rankings",
+          "Clean, responsive user interface",
+          "Planned Spotify API integration for audio previews"
+        ],
+        // liveLink: "https://example.com", // Replace with actual live site link
+        codeLink: "https://github.com/kelvin-2/theLeePlaylist" 
+      },
+
+    // {
+    //   id: 4,
+    //   title: "AI Image Generator",
+    //   description: "Web application that uses machine learning to generate unique images based on text prompts.",
+    //   longDescription: "This app leverages AI to create unique images from text descriptions. Users can input prompts and receive AI-generated visuals, with options to adjust style, complexity, and artistic influences. The application includes image history, favorites, and sharing capabilities.",
+    //   image: "/api/placeholder/600/400",
+    //   techStack: ["Python", "TensorFlow", "React", "Flask", "Redis"],
+    //   features: ["Text-to-image generation", "Style customization", "Image history", "Social sharing"],
+    //   liveLink: "https://example.com",
+    //   codeLink: "https://github.com/yourusername/project4"
+    // },
+    // {
+    //   id: 5,
+    //   title: "Weather Dashboard",
+    //   description: "Interactive weather application with location-based forecasts, historical data comparison, and severe weather alerts.",
+    //   longDescription: "A feature-rich weather application that provides users with accurate forecasts, historical weather data, and severe weather alerts. The app includes interactive maps, hourly and weekly forecasts, and customizable notification settings.",
+    //   image: "/api/placeholder/600/400",
+    //   techStack: ["JavaScript", "React", "Node.js", "OpenWeather API", "Mapbox"],
+    //   features: ["Location-based forecasts", "Interactive weather maps", "Historical data", "Weather alerts"],
+    //   liveLink: "https://example.com",
+    //   codeLink: "https://github.com/yourusername/project6"
+    // },
   ];
 
   // Pagination logic
