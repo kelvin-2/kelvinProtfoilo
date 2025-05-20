@@ -296,7 +296,7 @@ function Projects() {
         )}
         
         {/* View All Projects */}
-        <motion.div 
+        {/* <motion.div 
           className="flex justify-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -311,7 +311,7 @@ function Projects() {
             View All Projects
             <ArrowRight className="w-5 h-5 ml-2" />
           </motion.a>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
       
       {/* Project Details Modal */}
