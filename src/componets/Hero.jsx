@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"
+import kelvinImage from '../assets/kelvinimage.png';
+
 
 function Hero() {
   return (
@@ -8,7 +10,7 @@ function Hero() {
       <div className="relative mb-8">
         <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-gray-800 relative z-10">
           <img 
-            src="/images/kelvinimage.png" 
+            src={kelvinImage} 
             alt="Kelvin" 
             className="w-full h-full object-cover"
           />
