@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import kelvinImage from '../assets/kelvinimage.png';
 
 function About() {
   const aboutRef = useRef(null);
@@ -75,7 +76,7 @@ function About() {
                 <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-blue-400/30 p-1">
                   <div className="w-full h-full rounded-full overflow-hidden relative z-10">
                     <img 
-                      src="images/kelvinimage.png" 
+                      src={kelvinImage}
                       alt="Kelvin" 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
