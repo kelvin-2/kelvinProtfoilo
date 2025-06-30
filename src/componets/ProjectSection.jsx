@@ -66,19 +66,19 @@ function Projects() {
   };
 
   const projects = [
-    // {
-    //   id: 1,
-    //   title: "Personal Portfolio",
-    //   description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and a clean design.",
-    //   longDescription: "This portfolio showcases my skills and projects using modern web technologies. It features smooth page transitions, responsive design for all devices, and interactive elements to improve user engagement. Implemented with accessibility in mind and optimized for performance.",
-    //   image: Portfolio,
-    //   techStack: ["React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-    //   features: ["Animated UI transitions", "Contact form with validation", "Performance optimized assets"],
-    //   liveLink: "https://kelvin-protfoilo.vercel.app",
-    //   codeLink: "https://github.com/kelvin-2/kelvinProtfoilo"
-    // },
     {
-        id: 1,
+      id: 1,
+      title: "Personal Portfolio",
+      description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and a clean design.",
+      longDescription: "This portfolio showcases my skills and projects using modern web technologies. It features smooth page transitions, responsive design for all devices, and interactive elements to improve user engagement. Implemented with accessibility in mind and optimized for performance.",
+      image: Portfolio,
+      techStack: ["React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
+      features: ["Animated UI transitions", "Contact form with validation", "Performance optimized assets"],
+      liveLink: "https://kelvin-protfoilo.vercel.app",
+      codeLink: "https://github.com/kelvin-2/kelvinProtfoilo"
+    },
+    {
+        id: 2,
         title: "uinStay – Student Accommodation Finder",
         description: "A responsive web app for students to search and explore off-campus accommodation options with real-time filters and location-based results.",
         longDescription: "uinStay is a student-focused accommodation platform designed to simplify the process of finding suitable housing near campus. It features real-time search filters, interactive property listings, and mobile-friendly navigation. The app connects seamlessly with a Supabase backend for efficient data management and includes developer tools for streamlined debugging.",
@@ -95,7 +95,7 @@ function Projects() {
       },
       
       {
-        id: 2,
+        id: 3,
         title: "TheLee Playlist – Personal Music Showcase",
         description: "A personal music hub to explore my favorite albums, artists, and musical insights, with future plans for Spotify integration.",
         longDescription: "TheLee Playlist is a web-based music portfolio where I share my top albums, artist highlights, and personal music takes—from timeless classics to hidden gems. Designed with simplicity and clarity in mind, the site features clean navigation and responsive layouts. Future iterations aim to integrate the Spotify API for live track previews and dynamic music data.",
