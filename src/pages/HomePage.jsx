@@ -3,9 +3,8 @@ import Hero from "../componets/Hero";
 
 function HomePage(){
     return (
-        <div >
             <Hero/>
-        </div>
+     
     )
 }
 

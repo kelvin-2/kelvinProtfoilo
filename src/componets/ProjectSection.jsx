@@ -13,9 +13,9 @@ function Projects() {
   // Responsive projects per page
   const getProjectsPerPage = () => {
     if (typeof window !== 'undefined') {
-      if (window.innerWidth < 768) return 1; // Mobile: 1 project
-      if (window.innerWidth < 1024) return 2; // Tablet: 2 projects
-      return 3; // Desktop: 3 projects
+      if (window.innerWidth < 768) return 1; 
+      if (window.innerWidth < 1024) return 2; 
+      return 3; 
     }
     return 3;
   };
@@ -33,7 +33,7 @@ function Projects() {
     const handleResize = () => {
       const newProjectsPerPage = getProjectsPerPage();
       setProjectsPerPage(newProjectsPerPage);
-      // Reset to first page if current page would be out of bounds
+      
       const newPageCount = Math.ceil(projects.length / newProjectsPerPage);
       if (currentPage >= newPageCount) {
         setCurrentPage(0);
@@ -66,19 +66,19 @@ function Projects() {
   };
 
   const projects = [
+    // {
+    //   id: 1,
+    //   title: "Personal Portfolio",
+    //   description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and a clean design.",
+    //   longDescription: "This portfolio showcases my skills and projects using modern web technologies. It features smooth page transitions, responsive design for all devices, and interactive elements to improve user engagement. Implemented with accessibility in mind and optimized for performance.",
+    //   image: Portfolio,
+    //   techStack: ["React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
+    //   features: ["Animated UI transitions", "Contact form with validation", "Performance optimized assets"],
+    //   liveLink: "https://kelvin-protfoilo.vercel.app",
+    //   codeLink: "https://github.com/kelvin-2/kelvinProtfoilo"
+    // },
     {
-      id: 1,
-      title: "Personal Portfolio",
-      description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and a clean design.",
-      longDescription: "This portfolio showcases my skills and projects using modern web technologies. It features smooth page transitions, responsive design for all devices, and interactive elements to improve user engagement. Implemented with accessibility in mind and optimized for performance.",
-      image: Portfolio,
-      techStack: ["React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-      features: ["Animated UI transitions", "Contact form with validation", "Performance optimized assets"],
-      liveLink: "https://kelvin-protfoilo.vercel.app",
-      codeLink: "https://github.com/kelvin-2/kelvinProtfoilo"
-    },
-    {
-        id: 2,
+        id: 1,
         title: "uinStay – Student Accommodation Finder",
         description: "A responsive web app for students to search and explore off-campus accommodation options with real-time filters and location-based results.",
         longDescription: "uinStay is a student-focused accommodation platform designed to simplify the process of finding suitable housing near campus. It features real-time search filters, interactive property listings, and mobile-friendly navigation. The app connects seamlessly with a Supabase backend for efficient data management and includes developer tools for streamlined debugging.",
@@ -90,12 +90,12 @@ function Projects() {
           "Responsive, mobile-friendly interface",
           "Developer debug tools for easy testing"
         ],
-        liveLink: "https://uin-stay-vtmv.vercel.app/",
+        liveLink: "https://uinstay.netlify.app/",
         codeLink: "https://github.com/kelvin-2/uin-Stay"
       },
       
       {
-        id: 3,
+        id: 2,
         title: "TheLee Playlist – Personal Music Showcase",
         description: "A personal music hub to explore my favorite albums, artists, and musical insights, with future plans for Spotify integration.",
         longDescription: "TheLee Playlist is a web-based music portfolio where I share my top albums, artist highlights, and personal music takes—from timeless classics to hidden gems. Designed with simplicity and clarity in mind, the site features clean navigation and responsive layouts. Future iterations aim to integrate the Spotify API for live track previews and dynamic music data.",
