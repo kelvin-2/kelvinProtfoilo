@@ -47,11 +47,11 @@ function Hero() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-8 relative overflow-hidden">
       
       {/* Profile image with enhanced glowing effect */}
       <motion.div
-        className="relative mb-8 z-10"
+        className="relative mb-6 sm:mb-8 z-10"
         initial={{ scale: 0, opacity: 0, rotate: -180 }}
         animate={{ scale: 1, opacity: 1, rotate: 0 }}
         transition={{ 
@@ -61,7 +61,7 @@ function Hero() {
         }}
       >
         <motion.div
-          className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-full overflow-hidden relative z-20"
+          className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden relative z-20"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
@@ -103,20 +103,20 @@ function Hero() {
           }}
         />
         
-        {/* Glow effects */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 blur-2xl opacity-40 animate-pulse"></div>
+        {/* Glow effects - reduced on mobile */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 blur-xl sm:blur-2xl opacity-30 sm:opacity-40 animate-pulse"></div>
       </motion.div>
       
       {/* Introduction text with playful animation */}
       <motion.h1
-        className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-4 tracking-tight text-center leading-tight z-10"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-bold mb-3 sm:mb-4 tracking-tight text-center leading-tight z-10 px-2"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
       >
         Hi, I'm{" "}
         <motion.span 
-          className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 text-transparent bg-clip-text"
+          className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 text-transparent bg-clip-text inline-block"
           animate={{
             backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
           }}
@@ -134,12 +134,12 @@ function Hero() {
       </motion.h1>
 
       <motion.div
-        className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-10 font-light text-center max-w-sm sm:max-w-2xl leading-relaxed z-10"
+        className="text-base sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6 sm:mb-8 md:mb-10 font-light text-center max-w-xs sm:max-w-md md:max-w-2xl leading-relaxed z-10 px-2"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
       >
-        <span className="relative">
+        <span className="relative inline-block">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400">
             Full-Stack Developer
           </span>
@@ -154,7 +154,7 @@ function Hero() {
 
       {/* Social media links with tooltips */}
       <motion.div
-        className="flex items-center gap-5 sm:gap-7 justify-center mb-10 z-10"
+        className="flex items-center gap-3 sm:gap-5 md:gap-7 justify-center mb-8 sm:mb-10 z-10"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.7 }}
@@ -173,9 +173,9 @@ function Hero() {
             onHoverStart={() => setHoveredIcon(social.name)}
             onHoverEnd={() => setHoveredIcon(null)}
           >
-            {/* Tooltip */}
+            {/* Tooltip - hidden on mobile, shown on hover for desktop */}
             <motion.div
-              className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap pointer-events-none"
+              className="hidden sm:block absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap pointer-events-none"
               initial={{ opacity: 0, y: 10 }}
               animate={{ 
                 opacity: hoveredIcon === social.name ? 1 : 0,
@@ -191,7 +191,7 @@ function Hero() {
               href={social.url}
               target="_blank" 
               rel="noopener noreferrer" 
-              className="relative block p-4 sm:p-5 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-800 overflow-hidden group"
+              className="relative block p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-800 overflow-hidden group"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -199,15 +199,15 @@ function Hero() {
             >
               {/* Ripple effect on click */}
               <motion.div
-                className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-20`}
+                className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-20 group-active:opacity-30`}
                 transition={{ duration: 0.3 }}
               />
               
-              {/* Icon glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${social.color} blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
+              {/* Icon glow - reduced on mobile */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${social.color} blur-lg sm:blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
               
               <svg 
-                className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 text-gray-300 group-hover:text-white transition-colors" 
+                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 relative z-10 text-gray-300 group-hover:text-white transition-colors" 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24" 
                 fill="none" 
@@ -225,14 +225,14 @@ function Hero() {
 
       {/* Enhanced call-to-action button */}
       <motion.div
-        className="mb-16 z-10"
+        className="mb-12 sm:mb-16 z-10"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
       >
         <motion.button 
           onClick={scrollToWork}
-          className="relative px-10 py-4 sm:px-12 sm:py-5 rounded-full font-semibold text-base sm:text-lg overflow-hidden group"
+          className="relative px-8 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 rounded-full font-semibold text-sm sm:text-base md:text-lg overflow-hidden group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -253,8 +253,8 @@ function Hero() {
             }}
           />
           
-          {/* Button glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
+          {/* Button glow - reduced on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 blur-lg sm:blur-xl opacity-50 sm:opacity-60 group-hover:opacity-80 transition-opacity"></div>
           
           {/* Shine effect */}
           <motion.div
@@ -272,7 +272,7 @@ function Hero() {
           <span className="relative z-10 text-white flex items-center gap-2">
             View My Work
             <motion.svg 
-              className="w-5 h-5" 
+              className="w-4 h-4 sm:w-5 sm:h-5" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -289,9 +289,9 @@ function Hero() {
         </motion.button>
       </motion.div>
 
-      {/* Playful scroll indicator */}
+      {/* Playful scroll indicator - hidden on very small screens */}
       <motion.div
-        className="absolute bottom-8 z-10"
+        className="absolute bottom-6 sm:bottom-8 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
@@ -305,7 +305,7 @@ function Hero() {
           }}
         >
           <svg 
-            className="w-8 h-8 text-gray-400" 
+            className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24" 
