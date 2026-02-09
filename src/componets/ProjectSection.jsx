@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Github, X, Sparkles, Code2, Palette, Image as ImageIcon, Layers } from 'lucide-react';
+import { ExternalLink, Github, X, Sparkles, Code2, Palette, Layers, GraduationCap, Building2 } from 'lucide-react';
 import Uinstay from '../assets/uinStay.png';
 import Music from '../assets/music.png';
 import Portfolio from '../assets/portofolio.png';
@@ -31,20 +31,6 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Personal Portfolio",
-      description: "A modern, responsive portfolio website built with React and Tailwind CSS, featuring smooth animations and a clean design.",
-      longDescription: "This portfolio showcases my skills and projects using modern web technologies. It features smooth page transitions, responsive design for all devices, and interactive elements to improve user engagement. Implemented with accessibility in mind and optimized for performance.",
-      image: Portfolio, // You can set this to null if no image available
-      techStack: ["React", "Tailwind CSS", "Framer Motion", "Responsive Design"],
-      features: ["Animated UI transitions", "Contact form with validation", "Performance optimized assets"],
-      liveLink: "https://kelvin-protfoilo.vercel.app",
-      codeLink: "https://github.com/kelvin-2/kelvinProtfoilo",
-      gradient: "from-purple-500/20 via-blue-500/20 to-cyan-500/20",
-      thumbnailIcon: Code2, // Icon to use if no image
-      thumbnailColor: "from-purple-500 to-blue-500" // Gradient for thumbnail
-    },
-    {
-      id: 2,
       title: "uinStay – Student Accommodation Finder",
       description: "A responsive web app for students to search and explore off-campus accommodation options with real-time filters and location-based results.",
       longDescription: "uinStay is a student-focused accommodation platform designed to simplify the process of finding suitable housing near campus. It features real-time search filters, interactive property listings, and mobile-friendly navigation. The app connects seamlessly with a Supabase backend for efficient data management and includes developer tools for streamlined debugging.",
@@ -57,13 +43,55 @@ function Projects() {
         "Developer debug tools for easy testing"
       ],
       liveLink: "https://uinstay.netlify.app/",
-      codeLink: "https://github.com/kelvin-2/uin-Stay",
+      codeLinks: [
+        { label: "Frontend", url: "https://github.com/kelvin-2/uin-Stay" },
+        { label: "Backend", url: "https://github.com/YOUR-USERNAME/uin-stay-backend" } // Update with actual backend repo URL
+      ],
       gradient: "from-emerald-500/20 via-teal-500/20 to-cyan-500/20",
       thumbnailIcon: Layers,
       thumbnailColor: "from-emerald-500 to-teal-500"
     },
     {
-      id: 3,
+      id: 2,
+      title: "Kingdom Christian College Website",
+      description: "A modern, responsive school website with integrated CMS for easy content management by staff members.",
+      longDescription: "Designed and developed a complete website solution for Kingdom Christian College, featuring a clean and user-friendly interface that significantly improved the school's online presence. Integrated Sanity CMS to empower staff with the ability to update content independently without technical knowledge. Collaborated closely with stakeholders to understand requirements and deliver custom features tailored to the school's needs.",
+      image: null,
+      techStack: ["React", "Sanity CMS", "Tailwind CSS", "Responsive Design"],
+      features: [
+        "Integrated Sanity CMS for easy content updates",
+        "Modern, clean user interface",
+        "Fully responsive design across all devices",
+        "Custom features based on stakeholder requirements"
+      ],
+      liveLink: "https://kccschool.co.za/",
+      codeLinks: null,
+      gradient: "from-blue-500/20 via-indigo-500/20 to-purple-500/20",
+      thumbnailIcon: GraduationCap,
+      thumbnailColor: "from-blue-500 to-indigo-500"
+    },
+    {
+      id: 4,
+      title: "Emanzini Guest Lounge Booking System",
+      description: "A full-stack booking management system for a guest lounge, featuring secure authentication and an intuitive booking interface.",
+      longDescription: "Developed a comprehensive booking system for Emanzini Guest Lounge that streamlines the entire reservation process. The system includes robust database architecture, secure user authentication, and separate interfaces for customers and management. Built with scalability in mind and deployed to production, meeting all client requirements and timelines. Handles booking management, customer information, and administrative tasks efficiently.",
+      image: null,
+      techStack: ["React", "Node.js", "Tailwind CSS", "Supabase", "PostgreSQL"],
+      features: [
+        "Secure user authentication system",
+        "Intuitive booking interface for customers",
+        "Management dashboard for administrators",
+        "Database architecture with PostgreSQL",
+        "Production deployment and maintenance"
+      ],
+      liveLink: null,
+      codeLinks: null,
+      gradient: "from-amber-500/20 via-orange-500/20 to-red-500/20",
+      thumbnailIcon: Building2,
+      thumbnailColor: "from-amber-500 to-orange-500"
+    },
+    {
+      id: 5,
       title: "TheLee Playlist – Personal Music Showcase",
       description: "A personal music hub to explore my favorite albums, artists, and musical insights, with future plans for Spotify integration.",
       longDescription: "TheLee Playlist is a web-based music portfolio where I share my top albums, artist highlights, and personal music takes—from timeless classics to hidden gems. Designed with simplicity and clarity in mind, the site features clean navigation and responsive layouts. Future iterations aim to integrate the Spotify API for live track previews and dynamic music data.",
@@ -75,7 +103,9 @@ function Projects() {
         "Clean, responsive user interface",
         "Planned Spotify API integration for audio previews"
       ],
-      codeLink: "https://github.com/kelvin-2/theLeePlaylist",
+      codeLinks: [
+        { label: "Source Code", url: "https://github.com/kelvin-2/theLeePlaylist" }
+      ],
       gradient: "from-pink-500/20 via-rose-500/20 to-orange-500/20",
       thumbnailIcon: Sparkles,
       thumbnailColor: "from-pink-500 to-orange-500"
@@ -448,13 +478,13 @@ const ProjectCard = ({ project, openProjectDetails, index, isInView }) => {
         </p>
         
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+        <div className="flex flex-col gap-3 mt-auto">
           <motion.button
             onClick={(e) => {
               e.stopPropagation();
               openProjectDetails(project);
             }}
-            className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white text-sm font-medium px-5 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+            className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white text-sm font-medium px-5 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -469,24 +499,48 @@ const ProjectCard = ({ project, openProjectDetails, index, isInView }) => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex-1 sm:flex-none bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-center"
+                className="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <ExternalLink className="w-4 h-4" />
+                <span className="hidden sm:inline">Live</span>
               </motion.a>
             )}
-            <motion.a 
-              href={project.codeLink} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex-1 sm:flex-none bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github className="w-4 h-4" />
-            </motion.a>
+            {project.codeLinks && project.codeLinks.length > 0 && (
+              <>
+                {project.codeLinks.length === 1 ? (
+                  <motion.a 
+                    href={project.codeLinks[0].url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Github className="w-4 h-4" />
+                    <span className="hidden sm:inline">Code</span>
+                  </motion.a>
+                ) : (
+                  project.codeLinks.map((link, idx) => (
+                    <motion.a 
+                      key={idx}
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs px-3 py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-1.5"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Github className="w-4 h-4" />
+                      <span>{link.label}</span>
+                    </motion.a>
+                  ))
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -620,17 +674,24 @@ const ProjectModal = ({ project, closeProjectDetails }) => {
                 View Live Demo
               </motion.a>
             )}
-            <motion.a 
-              href={project.codeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 bg-white/5 hover:bg-white/10 border-2 border-white/20 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-3 text-base font-medium"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Github className="w-5 h-5" />
-              View Source Code
-            </motion.a>
+            {project.codeLinks && project.codeLinks.length > 0 && (
+              <div className="flex-1 flex flex-col sm:flex-row gap-3">
+                {project.codeLinks.map((link, idx) => (
+                  <motion.a 
+                    key={idx}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-white/5 hover:bg-white/10 border-2 border-white/20 text-white px-6 py-4 rounded-xl flex items-center justify-center gap-3 text-base font-medium"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Github className="w-5 h-5" />
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </motion.div>
