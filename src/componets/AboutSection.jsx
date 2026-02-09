@@ -1,129 +1,229 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import kelvinImage from '../assets/kelvinimage.png';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 function About() {
   const aboutRef = useRef(null);
   const isInView = useInView(aboutRef, { once: false, margin: "-20% 0px -20% 0px" });
   
-  // Parallax effect for the background elements
-  const { scrollYProgress } = useScroll();
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const { scrollYProgress } = useScroll({
+    target: aboutRef,
+    offset: ["start end", "end start"]
+  });
   
-  // Animation variants for staggered animations
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-  
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  // const highlights = [
+  //   { number: "0+", label: "Years Experience" },
+  //   { number: "5+", label: "Projects Completed" },
+  //   { number: "100%", label: "Client Satisfaction" },
+  //   { number: "24/7", label: "Dedicated Support" },
+  // ];
 
   return (
-    <div id="about-section" ref={aboutRef} className="relative min-h-screen flex flex-col items-center justify-center bg-black px-4 py-16 overflow-hidden">
-      {/* Decorative background elements */}
-      <motion.div 
-        className="absolute inset-0 pointer-events-none" 
-        style={{ y: backgroundY }}
-      >
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-500/5 blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-indigo-500/5 blur-3xl"></div>
-      </motion.div>
-      
-      {/* Main content */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 w-full max-w-6xl mx-auto"
-      >
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-white text-4xl md:text-5xl font-bold mb-16 text-center relative"
-        >
-          About <span className="text-blue-400">Me</span>
-          <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-400 rounded-full"></span>
-        </motion.h2>
-        
-        <div className="flex flex-col-reverse lg:flex-row gap-8 md:gap-12 items-center">
-          {/* Left column - Image with animated border */}
-          <motion.div 
-            className="w-full lg:w-2/5 flex justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <div className="relative group">
-              {/* Animated glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full blur-xl opacity-25 group-hover:opacity-40 transition-opacity duration-700"></div>
-              
-              {/* Profile image container */}
-              <div className="relative">
-                <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-blue-400/30 p-1">
-                  <div className="w-full h-full rounded-full overflow-hidden relative z-10">
-                    <img 
-                      src={kelvinImage}
-                      alt="Kelvin" 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-                
-                {/* Animated ring */}
-                <div className="absolute inset-0 border-4 border-blue-400/25 rounded-full animate-spin-slow"></div>
-              </div>
-            </div>
-          </motion.div>
+    <div 
+      id="about-section"
+      ref={aboutRef}
+      className="relative min-h-screen flex items-center justify-center px-4 py-20 md:py-32 overflow-hidden"
+    >
+      {/* Floating Particles Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating particles */}
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: Math.random() * 6 + 2,
+              height: Math.random() * 6 + 2,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              background: `linear-gradient(135deg, ${
+                ['#3b82f6', '#8b5cf6', '#ec4899', '#f97316', '#10b981'][Math.floor(Math.random() * 5)]
+              }, transparent)`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              x: [0, Math.random() * 50 - 25, 0],
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        <div className="flex flex-col items-center text-center space-y-12">
           
-          {/* Right column - Text content */}
-          <div className="w-full lg:w-3/5">
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="space-y-8"
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 border border-blue-400/30 backdrop-blur-md"
+            whileHover={{ scale: 1.05 }}
+            animate={{
+              boxShadow: [
+                "0 0 20px rgba(59, 130, 246, 0.3)",
+                "0 0 40px rgba(139, 92, 246, 0.4)",
+                "0 0 20px rgba(236, 72, 153, 0.3)",
+                "0 0 40px rgba(59, 130, 246, 0.4)",
+              ],
+            }}
+          >
+            <div className="flex gap-1">
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                  }}
+                />
+              ))}
+            </div>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 font-semibold text-sm md:text-base">
+              Full-Stack Developer & Designer
+            </span>
+          </motion.div>
+
+          {/* Main Heading */}
+          <div className="space-y-6 max-w-4xl">
+            <motion.h2 
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {/* Enhanced bio card with glass effect */}
-              <motion.div 
-                variants={itemVariants}
-                className="bg-gray-900/40 backdrop-blur-md rounded-xl p-8 border border-gray-700/30 shadow-lg"
-              >
-                <h3 className="text-blue-400 font-semibold text-xl mb-4">Who I Am</h3>
-                <div className="space-y-4 text-gray-200">
-                  <p className="leading-relaxed">
-                    Computer Science student at Nelson Mandela University with a passion for building thoughtful, user-friendly software.
-                  </p>
-                  
-                  <p className="leading-relaxed">
-                    I work across the full web stack — crafting responsive front-end interfaces in React and developing robust back-end systems with Supabase and Node.js.
-                  </p>
-                  
-                  <p className="leading-relaxed">
-                    Outside of coding, I enjoy music, tech podcasts, and exploring creative ways to blend design with functionality.
-                  </p>
-                </div>
-              </motion.div>
+              <span className="text-white">Crafting</span>
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient">
+                Digital Experiences
+              </span>
+              <br />
+              <span className="text-white">That Matter</span>
+            </motion.h2>
+
+            <motion.div
+              className="flex gap-2 justify-center"
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="h-1.5 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+              <div className="h-1.5 w-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+              <div className="h-1.5 w-8 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full"></div>
             </motion.div>
           </div>
+
+          {/* Description */}
+          <motion.div
+            className="space-y-4 max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              I'm a passionate developer who transforms ideas into elegant, functional web applications. 
+              With a keen eye for design and a love for clean code, I build digital solutions that not 
+              only look stunning but deliver exceptional user experiences.
+            </p>
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              From concept to deployment, I handle every aspect of web development—crafting intuitive 
+              interfaces, architecting robust backends, and ensuring seamless performance. My approach 
+              combines technical excellence with creative problem-solving to bring your vision to life.
+            </p>
+          </motion.div>
+
+          {/* Stats */}
+          {/* <motion.div
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 w-full max-w-4xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            {highlights.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="relative group"
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                    {item.number}
+                  </div>
+                  <div className="text-gray-400 text-xs md:text-sm mt-1">
+                    {item.label}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div> */}
+
+          {/* CTA Buttons */}
+          {/* <motion.div
+            className="flex flex-wrap gap-4 pt-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <motion.button
+              className="relative px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10">Let's Collaborate</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500"
+                initial={{ x: "100%" }}
+                whileHover={{ x: "0%" }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+            
+            <motion.button
+              className="px-8 py-4 rounded-xl border-2 border-white/20 text-white font-semibold backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+              whileHover={{ scale: 1.05, borderColor: "rgba(139, 92, 246, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View My Work
+            </motion.button>
+          </motion.div> */}
         </div>
-      </motion.div>
+      </div>
+
+      {/* Custom CSS for gradient animation */}
+      <style jsx>{`
+        @keyframes gradient {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+        
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
+        }
+      `}</style>
     </div>
   );
 }
 
 export default About;
-
