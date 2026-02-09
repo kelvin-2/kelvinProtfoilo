@@ -45,7 +45,7 @@ function Projects() {
       liveLink: "https://uinstay.netlify.app/",
       codeLinks: [
         { label: "Frontend", url: "https://github.com/kelvin-2/uin-Stay" },
-        { label: "Backend", url: "https://github.com/YOUR-USERNAME/uin-stay-backend" } // Update with actual backend repo URL
+        { label: "Backend", url: "https://github.com/kelvin-2/uinStayBackend" }
       ],
       gradient: "from-emerald-500/20 via-teal-500/20 to-cyan-500/20",
       thumbnailIcon: Layers,
