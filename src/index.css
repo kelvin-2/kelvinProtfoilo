@@ -8,7 +8,7 @@
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #0a0a0a; /* Consistent dark background */
+  background-color: #000000; /* Pure black */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,14 +20,14 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #0a0a0a; /* Force dark background */
+  background-color: #000000; /* Pure black */
   color: rgba(255, 255, 255, 0.87);
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
-  background-color: #0a0a0a; /* Ensure app container is dark */
+  background-color: #000000; /* Pure black */
 }
 
 a {
@@ -60,5 +60,3 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-/* Remove the light mode media query completely */
